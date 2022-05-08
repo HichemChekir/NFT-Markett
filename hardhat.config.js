@@ -1,5 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
 const fs = require('fs');
+const privateKey = fs.readFileSync(".secret").toString().trim() || "01234567890123456789"
+
 // const infuraId = fs.readFileSync(".infuraid").toString().trim() || "";
 
 module.exports = {
@@ -7,6 +9,10 @@ module.exports = {
   networks: {
     hardhat: {
       chainId: 1337
+    },
+    ropsten: {
+      url: "https://ropsten.infura.io/v3/8ed7da6d4abe472a9668f831032ca04d",
+      accounts: [privateKey]
     },
     /*
     mumbai: {

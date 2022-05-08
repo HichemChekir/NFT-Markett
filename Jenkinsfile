@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                npm --version
+                sh 'npm --version'
             }
         }
         stage('Test') {
             steps {
-                npx hardhat test
+                sh 'npx hardhat test'
             }
         }
         stage('Deploy') {
             steps {
-                npx hardhat run scripts/deploy.js --network ropsten
+                sh 'npx hardhat run scripts/deploy.js --network ropsten'
             }
         }
     }
